@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -z "$CFILE" ]; then
+echo "CFILE variable is not set."
+exit 1
+fi
+BASENAME="${CFILE%.*}"
+gcc -S -masm=intel "$CFILE" -o "$BASENAME.s"
